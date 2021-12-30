@@ -1,7 +1,7 @@
 # Exercício 2: Dados três valores distintos, fazer um algoritmo que, após a leitura destes dados imprima-os em ordem crescente.
 
 
-def entrada(frase: str) -> float:
+def entrada(frase: str, valores_anteriores=None) -> float:
     ''' Função exige entrada de decimais com tratamento de valores. 
     Parâmetros
     ----------
@@ -23,8 +23,9 @@ def entrada(frase: str) -> float:
             print(
                 'Ocorreu um erro inesperado durante a leitura, por favor insira o valor novamente.')
             continue
-        else:
-            return valor
+        if((valores_anteriores!= None) and (valor in valores_anteriores)):
+            continue
+        return valor
 
 
 def ordernar(valores: list) -> list:
@@ -50,11 +51,12 @@ def ordernar(valores: list) -> list:
 
 
 # Lista de valores recebidos.
-valores = [
-    entrada('Digite o primeiro valor: '),
-    entrada('Digite o segundo valor: '),
-    entrada('Digite o terceiro valor: ')
-]
+numero = []
+numero.append(entrada('Digite o primeiro valor: '))
+numero.append(entrada('Digite o segundo valor: ',numero))
+numero.append(entrada('Digite o terceiro valor: ',numero))
+
+
 
 # Exibição do resultado
-print('Em ordem crescente:', ordernar(valores))
+print('Em ordem crescente:', ordernar(numero))
