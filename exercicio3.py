@@ -34,8 +34,8 @@ numero = entrada("Digite um número para ser analisado: ")
 frase = "O número é "
 frase += "par" if numero % 2 == 0 else "ímpar"  # Verifica se o número é par
 frase += " e "
-# Verifica se o número é positivo
-frase += "positivo." if numero > 0 else "negativo."
+
+frase += "positivo." if numero > 0 else "negativo."  # Verifica se o número é positivo
 
 # Exibição
 print(frase)
